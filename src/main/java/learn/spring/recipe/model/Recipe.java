@@ -13,6 +13,7 @@ public class Recipe {
     private String description;
     private String source;
     private String url;
+    @Lob
     private String directions;
     private Integer prepTime;
     private Integer cookTime;
@@ -144,6 +145,7 @@ public class Recipe {
             this.ingredients = new HashSet<>();
         }
         this.ingredients.add(ingredient);
+        ingredient.setRecipe(this);
     }
 
     public void addCategory(Category category) {
@@ -151,6 +153,7 @@ public class Recipe {
             this.categories = new HashSet<>();
         }
         this.categories.add(category);
+        category.addRecipe(this);
     }
 
 
